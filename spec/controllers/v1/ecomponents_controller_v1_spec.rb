@@ -28,4 +28,13 @@ RSpec.describe Api::V1::EcomponentsController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/ecomponents/id' do
+    it 'Consegue atualizar um ecomponent e retornar status 200?' do
+      ecomponent = Ecomponent.last
+      patch :update, params: {ecomponent: {name: "resistor", unity: "OHMS"}, id: ecomponent.id}
+      expect(response.body).to include_json(unity: "OHMS")
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
