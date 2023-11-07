@@ -18,4 +18,14 @@ RSpec.describe Ecomponent, type: :model do
 
   end
 
+  describe 'Teste de validação do model Ecomponent' do
+
+    it 'Ecomponent valido com campos obrigatorios preenchidos?' do
+      @ecomponent.name = ""
+      @ecomponent.unity = ""
+      expect(@ecomponent).to be_valid
+    end
+
+  end
+
 end
