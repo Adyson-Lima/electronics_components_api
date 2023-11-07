@@ -1,0 +1,2 @@
+class Ecomponent < ApplicationRecord
+end
