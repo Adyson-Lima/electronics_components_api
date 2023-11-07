@@ -37,4 +37,13 @@ RSpec.describe Api::V1::EcomponentsController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/ecomponents/id' do
+    it 'Consegue excluir um ecomponent e retornar 204?' do
+      ecomponent = Ecomponent.last
+      delete :destroy, params: {id: ecomponent.id}
+      expect(Ecomponent.all).not_to include(ecomponent)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
