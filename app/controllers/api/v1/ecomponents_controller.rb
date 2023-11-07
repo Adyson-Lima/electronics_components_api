@@ -1,10 +1,14 @@
 class Api::V1::EcomponentsController < ApplicationController
 
-  #before_action :set_ecomponent, only: %i[] # show update destroy
+  before_action :set_ecomponent, only: %i[show] # show update destroy
 
   def index
     @ecomponents = Ecomponent.all 
     render json: @ecomponents
+  end
+
+  def show
+    render json: @ecomponent
   end
 
 private
