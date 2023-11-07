@@ -26,6 +26,11 @@ RSpec.describe Ecomponent, type: :model do
       expect(@ecomponent).to be_valid
     end
 
+    it 'Ecomponent invalido com campos obrigatorios não preenchidos?' do
+      ecomponent = Ecomponent.new
+      expect(ecomponent).to be_valid
+    end
+
   end
 
 end
