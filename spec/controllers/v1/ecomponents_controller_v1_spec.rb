@@ -20,4 +20,12 @@ RSpec.describe Api::V1::EcomponentsController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/ecomponents' do
+    it 'Consegue criar um ecomponent e retornar status 201?' do
+      post :create, params: {ecomponent: {name: "memristor", unity: "ohms"}, format: :json}
+      expect(response.body).to include_json(name: "memristor")
+      expect(response).to have_http_status(201)
+    end
+  end
+
 end
