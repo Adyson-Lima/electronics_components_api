@@ -11,6 +11,15 @@ class Api::V1::EcomponentsController < ApplicationController
     render json: @ecomponent
   end
 
+  def create
+    @ecomponent = Ecomponent.new(ecomponent_params)
+    if @ecomponent.save
+      render json: @ecomponent, status: :created, location: api_v1_ecomponent_url(@ecomponent)
+    else
+      render json: @ecomponent.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_ecomponent
