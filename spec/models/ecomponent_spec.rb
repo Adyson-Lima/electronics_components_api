@@ -12,7 +12,7 @@ RSpec.describe Ecomponent, type: :model do
     end
 
     it 'unity consegue ser preenchido?' do
-      @ecomponent.unity = ""
+      @ecomponent.unity = "ohms"
       expect(@ecomponent.unity).to eq("ohms")
     end
 
